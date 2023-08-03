@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>FoodWithHumanity</title>
+    <style>
+        #sa {
+            position: absolute;
+            right: 20px;
+            top: 30px;
+        }
+
+        div button {
+            /*margin-right: 20px;*/
+        }
+    </style>
+    <script>
+        function now(event) {
+          var preview = document.getElementById('preview');
+          var file = event.target.files[0];
+          var reader = new FileReader();
+
+          reader.onloadend = function () {
+              preview.src = reader.result;
+          }
+          if (file) {
+              reader.readAsDataURL(file);
+          } else {
+              preview.src = "";
+          }
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h1 align="center">FDWM</h1>
+    </div>
+    <div id="sa">
+        <button class="start_but">Signup</button>
+        <button class="start_but">Login</button>
+        <button class="start_but">Home</button>
+        <button class="start_but">Contact Us</button>
+    </div>
+    <div>
+        <form>
+            <fieldset style="width: 400px">
+                <legend><h2>Sign up</h2></legend>
+                <button><a href="#">Donar</a></button>
+                <button><a href="#">Collector</a></button><br><br>
+                <input type='text' placeholder="firstname" size="20">
+                <input type='text' placeholder="lastname" size="20"><br><br>
+                <input type='text' placeholder="PhoneNumber" size="20">
+                <input type='email' placeholder="email address" size="20"><br><br>
+                <input type="file" id="Proof" onchange="now(event)">
+                <img id="preview" width="300px" height="300px">
+                <input type='submit' value="SUBMIT"  size="20">
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
